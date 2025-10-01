@@ -1,6 +1,5 @@
 import streamlit as st
 
-# Allowed users & roles
 users = {
     "admin": {"password": "admin123", "role": "Admin"},
     "ias19_user": {"password": "ias19123", "role": "IAS19"},
@@ -11,6 +10,10 @@ users = {
 
 st.set_page_config(page_title="Login")
 
+# 🔎 Debug: show session state
+st.write("Authenticated:", st.session_state.get("authenticated"))
+st.write("Role:", st.session_state.get("role"))
+
 st.title("Login")
 
 username = st.text_input("Username")
@@ -20,8 +23,7 @@ if st.button("Login"):
     if username in users and users[username]["password"] == password:
         st.session_state.authenticated = True
         st.session_state.role = users[username]["role"]
-        st.rerun()  # ✅ new API
+        st.rerun()
     else:
         st.error("Invalid credentials")
-
 
