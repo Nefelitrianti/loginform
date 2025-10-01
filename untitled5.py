@@ -6,7 +6,11 @@ from datetime import date
 import os
 from dotenv import load_dotenv
 
+if not st.session_state.get("authenticated", False):
+    st.error("Please login first.")
+    st.stop()
 
+role = st.session_state.get("role", "Guest")
 def run_app(role):
     # DB connection
     if os.path.exists("env.txt"):
