@@ -20,8 +20,8 @@ if st.button("Login"):
         st.session_state.authenticated = True
         st.session_state.role = users[username]["role"]
 
-        # 👇 redirect to untitled5.py (must match the sidebar label)
-        st.query_params["page"] = "untitled5"
+        # 👇 must match the sidebar label, not the filename
+        st.query_params["page"] = "Company & Project Management"
         st.rerun()
     else:
         st.error("Invalid credentials")
