@@ -1,4 +1,6 @@
+
 import streamlit as st
+from streamlit_extras.switch_page_button import switch_page
 
 # Define allowed users and roles
 users = {
@@ -19,7 +21,7 @@ if st.button("Login"):
         st.session_state.authenticated = True
         st.session_state.role = users[username]["role"]
         st.success(f"Welcome {username}, role: {st.session_state.role}")
-        st.switch_page("untitled5.py")  # go to main app
+        st.switch_page("untitled5")  # go to main app
     else:
         st.error("Invalid credentials")
 
