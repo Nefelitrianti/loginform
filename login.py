@@ -20,7 +20,7 @@ if st.button("Login"):
     if username in users and users[username]["password"] == password:
         st.session_state.authenticated = True
         st.session_state.role = users[username]["role"]
-        st.experimental_rerun()  # reload → will show sidebar with pages
+        st.rerun()  # ✅ new API
     else:
         st.error("Invalid credentials")
 
