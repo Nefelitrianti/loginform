@@ -10,10 +10,6 @@ users = {
 
 st.set_page_config(page_title="Login")
 
-# 🔎 Debug: show session state
-st.write("Authenticated:", st.session_state.get("authenticated"))
-st.write("Role:", st.session_state.get("role"))
-
 st.title("Login")
 
 username = st.text_input("Username")
@@ -23,7 +19,11 @@ if st.button("Login"):
     if username in users and users[username]["password"] == password:
         st.session_state.authenticated = True
         st.session_state.role = users[username]["role"]
+
+        # 👇 redirect to untitled5.py (must match the sidebar label)
+        st.query_params["page"] = "untitled5"
         st.rerun()
     else:
         st.error("Invalid credentials")
+
 
