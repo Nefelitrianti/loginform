@@ -21,7 +21,7 @@ if st.button("Login"):
         st.session_state.authenticated = True
         st.session_state.role = users[username]["role"]
         st.success(f"Welcome {username}, role: {st.session_state.role}")
-        st.switch_page("untitled5")  # go to main app
+        switch_page("untitled5")  # go to main app
     else:
         st.error("Invalid credentials")
 
